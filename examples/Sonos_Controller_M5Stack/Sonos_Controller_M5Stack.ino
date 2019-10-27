@@ -18,11 +18,11 @@ WiFiClient client;
 SonosUPnP g_sonos = SonosUPnP(client, ethConnectError);
 
 // Living room
-IPAddress g_KitchenIP(192, 168, 13, 2);
-const char g_KitchenID[] = "7828CACF40DEF";
+IPAddress g_KitchenIP(192, 168, 1, 206);
+const char g_KitchenID[] = "5CAAFD406A906";
 
-const char* ssid     = "Buffalo-G-C9D4";
-const char* password = "96374313";
+const char* ssid     = "wifi";
+const char* password = "password";
 
 bool isPlaying = true; //Assume we're playing so always pause first.
 
@@ -147,8 +147,6 @@ String handleGet(String cmd)
     if (cmd == "gv")
     {
       int volume = g_sonos.getVolume(g_KitchenIP);
-      Serial.print("volume:");
-      Serial.println(volume);
       return String(volume);
     }
     else if (cmd == "gs")
